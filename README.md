@@ -1,6 +1,6 @@
 # Server Side
 
-OcphAuthServer [![NuGet](https://img.shields.io/nuget/v/dotnet-markdown.svg?maxAge=2592000?style=flat-square)](https://www.nuget.org/packages/OcphAuthServer/)
+OcphAuthServer [[NuGet]](https://www.nuget.org/packages/OcphAuthServer/)
 
     1. Add Service 
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
