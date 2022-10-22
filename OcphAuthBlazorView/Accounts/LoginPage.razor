@@ -1,0 +1,85 @@
+﻿@layout AccountLayout
+@page "/account-login"
+@inject NavigationManager nav
+@inject IAccountService accountService;
+
+<div style="height:100vh; display: flex; justify-content:center; align-items:center">
+    <div style="width: 30%; background-color:whitesmoke; padding:50px">
+        <h3>Login</h3>
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input @bind-value="userName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input @bind-value="password" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button type="button" @onclick="LoginCommand" class="btn btn-primary text-align:right">Submit</button>
+            </div>
+            <div class="d-flex flex-column">
+                <a href="/account-resetpassword">Forgot Password</a>
+                <a href="/account-register">Register</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@code {
+    string userName = string.Empty;
+    string password = string.Empty;
+
+
+    [Parameter]
+    public EventCallback<EventCallbackLoginResult> OnLoginSucces { get; set; }
+
+
+    protected override Task OnInitializedAsync()
+    {
+        Console.WriteLine("Tes to browser web !");
+
+        return base.OnInitializedAsync();
+
+    }
+
+
+    public async Task LoginCommand()
+    {
+        try
+        {
+            var hasAccount = await accountService.Login(userName, password);
+            if (hasAccount)
+            {
+                if (OnLoginSucces.HasDelegate)
+                {
+                   await OnLoginSucces.InvokeAsync(new EventCallbackLoginResult(true, string.Empty));
+                }
+                else
+                {
+                    nav.NavigateTo("/");
+                }
+            }else{
+                throw new SystemException("Maaf Anda Tidak Memiliki Akses !");
+            }
+        }
+        catch (Exception ex)
+        {
+            if (OnLoginSucces.HasDelegate)
+            {
+               await OnLoginSucces.InvokeAsync(new EventCallbackLoginResult(false, ex.Message));
+            }
+
+        }
+    }
+
+   
+
+
+}

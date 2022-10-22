@@ -1,0 +1,36 @@
+﻿
+<AuthorizeView>
+    <NotAuthorized>
+        <a href="/account-login" class="nav_link">Login</a>
+        <a href="/account-register" class="nav_link">Register</a>
+    </NotAuthorized>
+    <Authorized>
+        <a href="" class="nav_link"> <span class="nav_name">@context.User.Identity.Name</span> </a>
+        <a href="" @onclick="Logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+    </Authorized>
+</AuthorizeView>
+
+
+
+@code {
+
+    [Inject]
+    public NavigationManager Nav { get; set; }
+
+    [Inject]
+    public IAccountService AccountService { get; set; }
+
+    async Task Logout()
+    {
+        try
+        {
+            await AccountService.Logout();
+            Nav.NavigateTo("/account-login");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+}

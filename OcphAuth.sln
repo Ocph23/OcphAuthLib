@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcphAuthServer", "OcphAuth\OcphAuthServer.csproj", "{B0C4F15A-96ED-453F-B764-2C686BC959C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcphAuthBlazorView", "OcphAuthBlazorView\OcphAuthBlazorView.csproj", "{C54A7C70-7F26-4797-9188-0F5DF160C217}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedModel", "SharedModel\SharedModel.shproj", "{EE410027-A8D9-46B2-B91F-8C3D7E4A2136}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0C4F15A-96ED-453F-B764-2C686BC959C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C4F15A-96ED-453F-B764-2C686BC959C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C4F15A-96ED-453F-B764-2C686BC959C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C4F15A-96ED-453F-B764-2C686BC959C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C54A7C70-7F26-4797-9188-0F5DF160C217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C54A7C70-7F26-4797-9188-0F5DF160C217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C54A7C70-7F26-4797-9188-0F5DF160C217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C54A7C70-7F26-4797-9188-0F5DF160C217}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {354B35E6-D1A8-4EB8-ACF6-D7066223EDEB}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedModel\SharedModel.projitems*{b0c4f15a-96ed-453f-b764-2c686bc959c5}*SharedItemsImports = 5
+		SharedModel\SharedModel.projitems*{c54a7c70-7f26-4797-9188-0f5df160c217}*SharedItemsImports = 5
+		SharedModel\SharedModel.projitems*{ee410027-a8d9-46b2-b91f-8c3d7e4a2136}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
